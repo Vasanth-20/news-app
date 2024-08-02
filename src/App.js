@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Header from "./Components/Header";
+import Content from "./Components/Content";
+import Test from "./Components/test";
+
 
 function App() {
+
+  const [category, setCategory] = useState('general')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+        <Header setCategory={setCategory}/>
+        <Content category={category} />
+        {/* <Test /> */}
+    </>
   );
 }
 
 export default App;
+
+/* 
+  mistakes
+  did: onclick(fn)                    crt: onclick(()=>{fn})
+  did: Comp({props})                  crt: Comp(props)
+  did: in console ({props/dest name}) crt: log(props/destructured names)
+  did: in map <Comp />                crt: return <Comp />
+*/
